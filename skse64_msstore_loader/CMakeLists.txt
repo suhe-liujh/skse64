@@ -54,7 +54,10 @@ add_executable(
 	${headers}
 	${sources}
 	${skse64_common_SOURCE_DIR}/skse_version.rc
-	require_admin.manifest
+)
+
+set_target_properties(${PROJECT_NAME} PROPERTIES
+	LINK_FLAGS "/MANIFESTUAC:\"level='requireAdministrator' uiAccess='false'\""
 )
 
 add_executable(skse64::${PROJECT_NAME} ALIAS ${PROJECT_NAME})
